@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>G1 Tech Store | Steam Keys, Jogos e Apps</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+    :root{
+      --bg-main:#070a12;
+      --bg-header:#05060a;
+      --bg-card:#0f1424;
+      --neon-purple:#9d4edd;
+      --neon-blue:#00eaff;
+      --text-main:#e5e7eb;
+      --text-muted:#9ca3af;
+      --danger:#ef4444;
+      --ok:#22c55e;
+    }
+    body{background:radial-gradient(circle at top,#1a002a,#050008);color:var(--text-main);}
+    a{color:inherit}
+    .hide{display:none!important}
+
+    .section-title{
+      text-align:center;
+      font-size:26px;
+      margin:60px 0 30px;
+      letter-spacing:2px;
+    }
+
+    /* HEADER */
+    .topo{
+      position:sticky; top:0; z-index:50;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 40px;
+      background:linear-gradient(90deg,#05060a,#0b0f1f);
+      border-bottom:1px solid rgba(157,78,221,.25);
+      gap:16px;
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex;align-items:center;gap:12px;white-space:nowrap;}
+    .brand img{height:44px;width:auto;filter:drop-shadow(0 0 14px rgba(157,78,221,.35));}
+    .brand .brand-name{font-size:18px;font-weight:900;letter-spacing:.5px;color:#fff;}
+    .brand .brand-name span{color:var(--neon-purple)}
+
+    .busca{flex:1;display:flex;justify-content:center;}
+    .busca input{
+      width:min(560px,100%);
+      padding:10px 15px;border-radius:25px;border:none;outline:none;
+      background:#111827;color:#fff;
+    }
+
+    .acoes{display:flex;gap:10px;align-items:center;}
+    .btn-pri,.btn-sec,.btn-danger{
+      border:none;cursor:pointer;font-weight:900;border-radius:25px;
+      padding:10px 16px;transition:.25s;white-space:nowrap;
+    }
+    .btn-pri{background:linear-gradient(90deg,#8b5cf6,#6d28d9);color:#fff;box-shadow:0 0 18px rgba(157,78,221,.55);}
+    .btn-sec{background:#111827;color:#fff;border:1px solid rgba(157,78,221,.55);}
+    .btn-danger{background:rgba(239,68,68,.12);color:#fff;border:1px solid rgba(239,68,68,.45);}
+    .btn-pri:hover,.btn-sec:hover,.btn-danger:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(157,78,221,.65);}
+    .btn-pri:active,.btn-sec:active,.btn-danger:active{transform:scale(.96);}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      background:rgba(157,78,221,.12);
+      border:1px solid rgba(157,78,221,.25);
+      color:#fff;font-weight:900;font-size:12px;
+    }
+
+    /* HERO */
+    .hero{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:80px 40px;
+      background:radial-gradient(circle at right,#2e1065,#05060a);
+      gap:30px;
+    }
+    .hero-texto{max-width:560px;}
+    .hero-texto h1{font-size:52px;line-height:1.05;margin-bottom:18px;}
+    .hero-texto span{color:var(--neon-purple);}
+    .hero-texto p{color:var(--text-muted);line-height:1.6;margin-bottom:28px;max-width:520px;}
+    .hero-botoes{display:flex;gap:14px;flex-wrap:wrap;}
+    .hero-img{display:flex;justify-content:center;align-items:center;width:min(520px,42vw);}
+    .hero-img img{
+      max-width:420px;width:100%;
+      filter:drop-shadow(0 0 30px rgba(157,78,221,.55));
+      animation:float 4s ease-in-out infinite;
+    }
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)}}
+
+    /* BENEFITS 01..04 */
+    .benefits{
+      padding:100px 60px;
+      background:radial-gradient(circle at top,#1a002a,#050008);
+      text-align:center;
+    }
+    .benefits-top h2{font-size:36px;margin-bottom:20px;line-height:1.3;}
+    .benefits-top span{color:var(--neon-purple);}
+    .benefits-top p{max-width:750px;margin:0 auto 60px;font-size:14px;color:#cfcfcf;line-height:1.6;}
+    .benefits-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;max-width:1200px;margin:0 auto;text-align:left;
+    }
+    .benefit-card{
+      background:#0b0014;border-radius:18px;padding:30px;
+      transition:.3s;border:1px solid rgba(157,78,221,.2);
+    }
+    .benefit-card:hover{transform:translateY(-6px);box-shadow:0 0 35px rgba(157,78,221,.6);}
+    .number{
+      width:40px;height:40px;border-radius:50%;
+      background:#14001f;color:var(--neon-purple);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;margin-bottom:15px;border:1px solid rgba(157,78,221,.4);
+    }
+    .benefit-card h4{margin-bottom:12px;}
+    .benefit-card p{font-size:13px;color:#bdbdbd;line-height:1.6;}
+
+    /* 3 cards */
+    .beneficios{max-width:1200px;margin:80px auto;padding:0 40px;}
+    .beneficios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
+    .beneficio-card{
+      background:linear-gradient(180deg,#0b0f1f,#05060a);
+      border-radius:18px;padding:35px;border:1px solid rgba(139,92,246,0.3);
+      transition:0.3s;
+    }
+    .beneficio-card:hover{transform:translateY(-8px);box-shadow:0 0 30px rgba(139,92,246,0.35);}
+    .beneficio-icon{
+      width:45px;height:45px;border-radius:12px;
+      background:rgba(139,92,246,0.15);
+      display:flex;align-items:center;justify-content:center;
+      color:#b085ff;font-size:22px;margin-bottom:20px;
+    }
+    .beneficio-card h3{font-size:18px;margin-bottom:10px;}
+    .beneficio-card p{color:var(--text-muted);font-size:15px;line-height:1.6;}
+
+    /* categorias */
+    .categorias-populares{padding:80px 40px;background:radial-gradient(circle at top,#2e1065,#05060a);}
+    .categorias-populares h2{text-align:center;margin-bottom:50px;font-size:22px;letter-spacing:2px;}
+    .categorias-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;max-width:1200px;margin:auto;
+    }
+    .categoria-card{
+      position:relative;height:320px;border-radius:18px;overflow:hidden;
+      cursor:pointer;background:#0f1424;border:1px solid rgba(139,92,246,0.25);
+      transition:0.3s;
+    }
+    .categoria-card img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:.4s;}
+    .categoria-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to top,rgba(5,6,10,0.95),rgba(5,6,10,0.4),rgba(5,6,10,0.2));
+      display:flex;align-items:flex-end;justify-content:center;
+      padding:25px;text-align:center;
+    }
+    .categoria-overlay h3{font-size:20px;}
+    .categoria-card:hover{transform:translateY(-10px);box-shadow:0 0 35px rgba(139,92,246,0.45);}
+    .categoria-card:hover img{transform:scale(1.08);}
+    .categoria-card:active{transform:scale(0.96);box-shadow:0 0 20px rgba(139,92,246,0.8);}
+
+    /* products */
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;padding:0 40px 40px;
+      max-width:1200px;margin:0 auto;
+    }
+    .product{
+      position:relative;background:linear-gradient(145deg,#0c0016,#1b0030);
+      border-radius:18px;padding:15px;transition:.3s;cursor:pointer;
+      box-shadow:0 0 15px rgba(157,78,221,.25);
+      border:1px solid rgba(157,78,221,.18);
+      overflow:hidden;
+    }
+    .product:hover{transform:translateY(-6px);box-shadow:0 0 30px rgba(157,78,221,.6);}
+    .product:active{transform:scale(.95);}
+    .product img{
+      width:100%;border-radius:12px;margin-bottom:10px;height:140px;
+      object-fit:cover;background:#0b0014;
+    }
+    .product h4{font-size:14px;margin-bottom:8px;line-height:1.25;}
+    .price{color:var(--neon-purple);font-weight:900;}
+    .old{text-decoration:line-through;color:#777;font-size:12px;margin-bottom:4px;}
+    .product small{color:#aaa;font-size:12px;display:block;margin-top:6px;}
+    .off{
+      position:absolute;top:10px;right:10px;background:var(--neon-purple);color:#fff;
+      font-size:11px;padding:5px 8px;border-radius:12px;font-weight:900;z-index:2;
+    }
+    .badge{
+      position:absolute;top:10px;left:10px;background:#00ffcc;color:#000;
+      padding:6px 10px;font-size:11px;border-radius:20px;font-weight:900;z-index:2;
+    }
+    .product.out{opacity:.6;filter:grayscale(100%);cursor:not-allowed;}
+    .product.out:hover{transform:none;box-shadow:none;}
+    .product.out:active{transform:none;}
+
+    .product-actions{display:flex;gap:10px;margin-top:10px;}
+    .mini-btn{
+      flex:1;display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(157,78,221,.35);
+      background:rgba(17,24,39,.55);
+      color:#fff;font-weight:900;cursor:pointer;transition:.25s;
+    }
+    .mini-btn.primary{
+      background:linear-gradient(90deg,#8b5cf6,#6d28d9);
+      border:none;box-shadow:0 0 18px rgba(157,78,221,.35);
+    }
+    .mini-btn:hover{transform:translateY(-2px);box-shadow:0 0 24px rgba(157,78,221,.45);}
+    .mini-btn:active{transform:scale(.96);}
+
+    /* reviews */
+    .avaliacoes{padding:80px 40px;background:radial-gradient(circle at top,#2e1065,#05060a);overflow:hidden;}
+    .avaliacoes h2{text-align:center;margin-bottom:40px;font-size:22px;letter-spacing:2px;}
+    .avaliacoes h2 span{background:linear-gradient(90deg,#3b82f6,#8b5cf6);padding:6px 14px;border-radius:8px;font-size:14px;}
+    .avaliacoes-track{display:flex;gap:20px;width:max-content;animation:scrollAvaliacoes 60s linear infinite;}
+    @keyframes scrollAvaliacoes{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .avaliacao-card{
+      background:linear-gradient(180deg,#0b0f1f,#05060a);
+      border-radius:18px;padding:22px;min-width:300px;border:1px solid rgba(157,78,221,.3);
+    }
+    .avaliacao-topo{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+    .avaliacao-topo img{width:40px;height:40px;border-radius:50%;}
+    .avaliacao-nome{font-size:14px;font-weight:900;}
+    .estrelas{color:var(--neon-purple);font-size:14px;margin-bottom:10px;}
+    .avaliacao-texto{font-size:13px;color:#cfcfcf;line-height:1.6;}
+    .avaliacoes:hover .avaliacoes-track{animation-play-state:paused;}
+
+    /* support */
+    .support{
+      width:100%;min-height:420px;display:flex;align-items:center;justify-content:space-between;
+      padding:80px 70px;background:radial-gradient(circle at left,#14001f,#050008);gap:40px;
+    }
+    .support-left{max-width:480px;}
+    .support-left h2{font-size:34px;margin-bottom:15px;}
+    .support-left p{font-size:14px;line-height:1.6;color:#cfcfcf;margin-bottom:25px;}
+    .support-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 26px;border-radius:25px;background:var(--neon-purple);
+      color:#fff;text-decoration:none;font-weight:900;transition:.3s;
+      box-shadow:0 0 25px rgba(157,78,221,.7);
+    }
+    .support-btn:hover{transform:translateY(-4px);box-shadow:0 0 40px rgba(157,78,221,1);}
+    .support-btn:active{transform:scale(.95);}
+    .support-right img{
+      max-width:360px;width:100%;
+      animation:float 4s ease-in-out infinite;
+      filter:drop-shadow(0 0 18px rgba(157,78,221,.35));
+    }
+
+    /* atendimento */
+    .atendimento{padding:90px 40px;background:radial-gradient(circle at top,#2e1065,#05060a);}
+    .atendimento-wrap{max-width:1200px;margin:0 auto;}
+    .atendimento h2{text-align:center;margin-bottom:18px;font-size:28px;letter-spacing:1px;}
+    .atendimento p.sub{text-align:center;color:#cfcfcf;margin-bottom:36px;font-size:14px;line-height:1.6;}
+    .at-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
+    .at-card{
+      background:linear-gradient(145deg,#0c0016,#1b0030);
+      border:1px solid rgba(157,78,221,.22);
+      border-radius:18px;padding:18px;box-shadow:0 0 18px rgba(157,78,221,.12);
+    }
+    .at-card h3{font-size:14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+    .at-card h3 .dot{width:10px;height:10px;border-radius:50%;background:rgba(157,78,221,.9);box-shadow:0 0 12px rgba(157,78,221,.65);}
+    .at-card p{color:#cfcfcf;font-size:13px;line-height:1.6;margin-bottom:14px;}
+    .at-link{
+      width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:12px 14px;border-radius:14px;border:1px solid rgba(157,78,221,.28);
+      background:rgba(17,24,39,.45);color:#fff;font-weight:900;cursor:pointer;
+      transition:.25s;text-decoration:none;
+    }
+    .at-link:hover{transform:translateY(-2px);box-shadow:0 0 22px rgba(157,78,221,.35);}
+    .at-link span.arrow{opacity:.9}
+
+    /* final reviews + footer */
+    .final-avaliacoes{padding:90px 50px 60px;background:radial-gradient(circle at top,#1a002a,#050008);text-align:center;}
+    .final-avaliacoes h2{font-size:30px;margin-bottom:35px;}
+    .final-slider{overflow:hidden;width:100%;margin:0 auto 25px;}
+    .final-track{display:flex;gap:20px;width:max-content;animation:finalScroll 60s linear infinite;}
+    @keyframes finalScroll{from{ transform:translateX(0);}to{ transform:translateX(-50%);} }
+    .final-card{
+      min-width:280px;background:linear-gradient(145deg,#0c0016,#1b0030);
+      border:1px solid rgba(157,78,221,.25);border-radius:16px;padding:18px;
+      text-align:left;box-shadow:0 0 18px rgba(157,78,221,.15);
+    }
+    .final-top{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
+    .final-top img{width:44px;height:44px;border-radius:50%;}
+    .final-stars{color:var(--neon-purple);font-size:13px;margin-top:3px;}
+    .final-card p{color:#cfcfcf;font-size:13px;line-height:1.5;}
+    .final-btn{
+      display:inline-block;margin-top:12px;padding:12px 24px;border-radius:30px;
+      background:var(--neon-purple);color:#fff;text-decoration:none;font-weight:900;
+      box-shadow:0 0 25px rgba(157,78,221,.6);transition:.25s;
+    }
+    .final-btn:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(157,78,221,1);}
+    .final-btn:active{transform:scale(.96);}
+    .final-slider:hover .final-track{animation-play-state:paused;}
+
+    .footer-final{background:#050008;padding:60px 50px 20px;border-top:1px solid rgba(157,78,221,.2);}
+    .footer-grid{display:grid;grid-template-columns: 1.2fr 1fr 0.8fr;gap:35px;max-width:1200px;margin:0 auto;}
+    .footer-logo{font-size:20px;font-weight:900;color:#fff;margin-bottom:10px;}
+    .footer-col p{color:#bdbdbd;font-size:13px;line-height:1.6;max-width:420px;}
+    .footer-dev{margin-top:14px;color:var(--neon-purple);font-size:12px;}
+    .footer-col h4{margin-bottom:12px;font-size:14px;}
+    .footer-col a{display:block;color:#bdbdbd;text-decoration:none;font-size:13px;margin:8px 0;transition:.2s;}
+    .footer-col a:hover{color:var(--neon-purple);}
+    .selos{display:flex;gap:14px;flex-wrap:wrap;color:#bdbdbd;font-size:13px;}
+    .redes{display:flex;gap:12px;}
+    .redes a{
+      width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+      border-radius:12px;background:#0b0014;border:1px solid rgba(157,78,221,.25);
+      text-decoration:none;font-size:18px;transition:.25s;color:#fff;
+    }
+    .redes a:hover{transform:translateY(-4px);box-shadow:0 0 25px rgba(157,78,221,.55);}
+
+    .footer-mini{max-width:1200px;margin:40px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .mini-item{
+      background:#0b0014;border:1px solid rgba(157,78,221,.2);
+      border-radius:16px;padding:16px;display:flex;gap:12px;align-items:center;
+    }
+    .mini-ico{width:40px;height:40px;border-radius:12px;background:rgba(157,78,221,.15);display:flex;align-items:center;justify-content:center;}
+    .mini-item b{font-size:13px;}
+    .mini-item small{display:block;color:#bdbdbd;font-size:12px;margin-top:3px;}
+    .footer-copy{
+      text-align:center;color:#777;font-size:12px;margin-top:25px;padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    /* MODALS */
+    .overlay{
+      position:fixed; inset:0;background:rgba(0,0,0,.62);
+      display:none;align-items:center;justify-content:center;padding:18px;z-index:100;
+    }
+    .overlay.open{display:flex;}
+    .modal{
+      width:min(560px,100%);
+      background:linear-gradient(145deg,#0c0016,#1b0030);
+      border:1px solid rgba(157,78,221,.25);
+      border-radius:18px;padding:18px;box-shadow:0 0 40px rgba(157,78,221,.25);
+    }
+    .modal-header{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;
+      padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:14px;
+    }
+    .modal-title{font-size:16px;font-weight:900;}
+    .xbtn{
+      width:38px;height:38px;border-radius:12px;
+      border:1px solid rgba(157,78,221,.25);
+      background:rgba(17,24,39,.55);
+      color:#fff;font-weight:900;cursor:pointer;transition:.2s;
+    }
+    .xbtn:hover{transform:translateY(-1px);box-shadow:0 0 18px rgba(157,78,221,.25);}
+    .form{display:grid;gap:12px;}
+    .field label{display:block;font-size:12px;color:#cfcfcf;margin-bottom:6px;font-weight:900;letter-spacing:.3px;}
+    .field input{
+      width:100%;padding:12px 12px;border-radius:14px;
+      border:1px solid rgba(157,78,221,.25);
+      background:rgba(17,24,39,.55);color:#fff;outline:none;
+    }
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .check{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px;border-radius:14px;border:1px solid rgba(157,78,221,.2);
+      background:rgba(17,24,39,.35);color:#cfcfcf;font-size:12px;line-height:1.4;
+    }
+    .check input{margin-top:3px}
+    .hint{
+      font-size:12px;color:#cfcfcf;line-height:1.5;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(157,78,221,.18);background:rgba(17,24,39,.35);
+    }
+    .modal-actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+
+    /* CART DRAWER */
+    .drawer{
+      position:fixed;top:0;right:-420px;width:min(420px,92vw);height:100vh;
+      background:linear-gradient(145deg,#0c0016,#1b0030);
+      border-left:1px solid rgba(157,78,221,.25);
+      box-shadow:-10px 0 40px rgba(157,78,221,.18);
+      z-index:110;transition:.28s;display:flex;flex-direction:column;
+    }
+    .drawer.open{right:0;}
+    .drawer-header{
+      padding:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .drawer-title{font-weight:900}
+    .drawer-body{padding:14px;overflow:auto;flex:1;display:grid;gap:10px;}
+    .cart-item{
+      display:grid;grid-template-columns:64px 1fr;gap:10px;
+      padding:10px;border-radius:16px;border:1px solid rgba(157,78,221,.2);
+      background:rgba(17,24,39,.35);
+    }
+    .cart-item img{width:64px;height:64px;border-radius:14px;object-fit:cover;background:#0b0014;}
+    .cart-item h5{font-size:13px;margin-bottom:4px}
+    .cart-item .meta{color:#cfcfcf;font-size:12px;display:flex;justify-content:space-between;gap:10px}
+    .qty{display:flex;gap:6px;align-items:center;margin-top:8px;}
+    .qbtn{
+      width:32px;height:32px;border-radius:10px;border:1px solid rgba(157,78,221,.25);
+      background:rgba(17,24,39,.55);color:#fff;font-weight:900;cursor:pointer;transition:.2s;
+    }
+    .qbtn:hover{transform:translateY(-1px);box-shadow:0 0 14px rgba(157,78,221,.2);}
+    .qval{min-width:24px;text-align:center;font-weight:900}
+    .remove{
+      margin-left:auto;padding:8px 10px;border-radius:12px;
+      border:1px solid rgba(239,68,68,.35);
+      background:rgba(239,68,68,.12);
+      color:#fff;font-weight:900;cursor:pointer;
+    }
+    .drawer-footer{padding:14px;border-top:1px solid rgba(255,255,255,.06);display:grid;gap:10px;}
+    .total-line{display:flex;align-items:center;justify-content:space-between;font-weight:900;}
+
+    /* PIX BOX */
+    .pix-box{
+      padding:12px;border-radius:16px;border:1px solid rgba(157,78,221,.25);
+      background:rgba(17,24,39,.35);display:grid;gap:10px;
+    }
+    .pix-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#cfcfcf;font-size:12px;}
+    .pix-key{
+      width:100%;padding:10px 12px;border-radius:14px;
+      border:1px dashed rgba(157,78,221,.35);
+      background:rgba(0,0,0,.2);
+      color:#fff;font-weight:900;user-select:all;word-break:break-all;
+    }
+    .pix-qr{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .pix-qr img{
+      width:220px;max-width:100%;
+      border-radius:14px;
+      background:#0b0014;
+      padding:10px;
+      border:1px solid rgba(157,78,221,.25);
+    }
+    .pix-textarea{
+      width:100%;
+      min-height:120px;
+      resize:none;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid rgba(157,78,221,.25);
+      background:rgba(0,0,0,.2);
+      color:#fff;outline:none;
+      font-weight:700;
+      word-break:break-all;
+    }
+    .pix-actions{
+      display:flex;gap:10px;flex-wrap:wrap;
+    }
+    .pix-actions button, .pix-actions a{
+      flex:1;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+    }
+
+    @media (max-width: 950px){
+      .topo{padding:14px 18px;}
+      .busca{display:none;}
+      .hero{flex-direction:column;text-align:center;padding:70px 22px;}
+      .hero-texto h1{font-size:34px;}
+      .benefits{padding:70px 30px;}
+      .benefits-top h2{font-size:28px;}
+      .support{flex-direction:column;text-align:center;padding:70px 25px;}
+      .footer-grid{grid-template-columns:1fr;}
+      .footer-mini{grid-template-columns:1fr;}
+      .final-avaliacoes h2{font-size:24px;}
+      .row2{grid-template-columns:1fr;}
+      .brand .brand-name{display:none;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topo">
+    <div class="brand">
+      <img src="g1tech_logo_transparente.png" alt="Logo G1 Tech">
+      <div class="brand-name">G1 <span>Tech Store</span></div>
+    </div>
+
+    <div class="busca">
+      <input type="text" id="searchInput" placeholder="Buscar produto">
+    </div>
+
+    <div class="acoes">
+      <span class="pill" id="userPill">👤 Visitante</span>
+      <button class="btn-sec" id="btnCadastro">Cadastrar</button>
+      <button class="btn-sec" id="btnAtendimento">Central</button>
+      <button class="btn-pri" id="btnCarrinho">🛒 Carrinho (<span id="cartCount">0</span>)</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-texto">
+      <h1>Bem-Vindo(a)<br><span>G1 Tech Store!</span></h1>
+      <p>
+        Aqui você encontra tudo para deixar sua experiência de jogo ainda melhor.
+        Compra rápida, segura e 100% digital. Explore e aproveite!
+      </p>
+      <div class="hero-botoes">
+        <a href="#loja" class="btn-pri" style="display:inline-flex;text-decoration:none;">🛒 Ver produtos</a>
+        <a href="https://wa.me/5546999165248" target="_blank" class="btn-sec" style="display:inline-flex;text-decoration:none;">💬 Entrar no Grupo</a>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <img src="g1tech_logo_transparente.png" alt="Logo G1 Tech">
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="benefits-top">
+      <h2>Tudo o que você procura, reunido <br>em <span>um só lugar</span></h2>
+      <p>
+        Descubra uma plataforma pensada para facilitar sua vida. Aqui você encontra desde jogos
+        até serviços digitais, tudo organizado, prático e feito para oferecer uma experiência simples,
+        rápida e confiável do começo ao fim.
+      </p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="number">01</div>
+        <h4>Escolha com facilidade</h4>
+        <p>Explore nossas categorias e encontre exatamente o que você precisa. Cada produto foi pensado para atender diferentes perfis e necessidades.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="number">02</div>
+        <h4>Pagamento confiável</h4>
+        <p>Finalize sua compra com total tranquilidade. Utilizamos métodos de pagamento seguros, rápidos e protegidos.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="number">03</div>
+        <h4>Entrega eficiente</h4>
+        <p>Após a confirmação, seu pedido é tratado com prioridade. Nosso sistema garante agilidade no processamento.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="number">04</div>
+        <h4>Aproveite a experiência</h4>
+        <p>Com o produto em mãos, é só aproveitar. Nosso objetivo é entregar uma experiência completa e satisfatória.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 CARDS -->
+  <section class="beneficios">
+    <div class="beneficios-grid">
+      <div class="beneficio-card">
+        <div class="beneficio-icon">🔑</div>
+        <h3>Keys Exclusivas</h3>
+        <p>Receba uma key única para acessar sua conta com todos os códigos de autenticação.</p>
+      </div>
+      <div class="beneficio-card">
+        <div class="beneficio-icon">⏱️</div>
+        <h3>Tempo Definido</h3>
+        <p>Cada key tem um período de validade definido. Aproveite durante o tempo contratado.</p>
+      </div>
+      <div class="beneficio-card">
+        <div class="beneficio-icon">🛡️</div>
+        <h3>100% Seguro</h3>
+        <p>Seus dados e acessos são protegidos. Sistema seguro com autenticação avançada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="categorias-populares">
+    <h2>CATEGORIAS POPULARES</h2>
+    <div class="categorias-grid">
+      <div class="categoria-card" data-scroll="#secSMM">
+        <img src="CAT_SMM.png" alt="Painel SMM">
+        <div class="categoria-overlay"><h3>Painel SMM</h3></div>
+      </div>
+      <div class="categoria-card" data-scroll="#secStreaming">
+        <img src="CAT_STREAMING.png" alt="Streaming">
+        <div class="categoria-overlay"><h3>Streaming</h3></div>
+      </div>
+      <div class="categoria-card" data-scroll="#secJogos">
+        <img src="CAT_JOGOS.png" alt="Jogos">
+        <div class="categoria-overlay"><h3>Jogos</h3></div>
+      </div>
+      <div class="categoria-card" data-scroll="#secApps">
+        <img src="CAT_APPS.png" alt="Aplicativos">
+        <div class="categoria-overlay"><h3>Aplicativos</h3></div>
+      </div>
+      <div class="categoria-card" data-scroll="#secSteam">
+        <img src="CAT_STEAM.png" alt="Steam Keys">
+        <div class="categoria-overlay"><h3>Steam Keys</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAINEL SMM -->
+  <h2 class="section-title" id="secSMM">PAINEL SMM</h2>
+  <div class="products product-list">
+    <div class="product" data-cat="smm" data-name="100 Seguidores Mundiais • Instagram" data-price="2.00" data-img="SMM1.png">
+  <img src="SMM1.png" alt="">
+  <h4>100 Seguidores Mundiais • Instagram</h4>
+  <p class="price">R$ 2,00</p>
+  <small>À vista no Pix</small>
+</div>
+    <div class="product" data-cat="smm" data-name="Seguidores Reais • Instagram" data-price="0.06" data-img="SMM2.png">
+      <img src="SMM2.png" alt=""><h4>Seguidores Reais • Instagram</h4><p class="price">R$ 0,06+</p><small>À vista no Pix</small>
+    </div>
+    <div class="product" data-cat="smm" data-name="Curtidas Reais • Instagram" data-price="0.03" data-img="SMM3.png">
+      <img src="SMM3.png" alt=""><h4>Curtidas Reais • Instagram</h4><p class="price">R$ 0,03+</p><small>À vista no Pix</small>
+    </div>
+    <div class="product" data-cat="smm" data-name="Visualizações Reais • Instagram" data-price="0.01" data-img="SMM4.png">
+      <img src="SMM4.png" alt=""><h4>Visualizações Reais • Instagram</h4><p class="price">R$ 0,01+</p><small>À vista no Pix</small>
+    </div>
+    <div class="product" data-cat="smm" data-name="Curtidas Reais • TikTok" data-price="0.03" data-img="SMM5.png">
+      <img src="SMM5.png" alt=""><h4>Curtidas Reais • TikTok</h4><p class="price">R$ 0,03+</p><small>À vista no Pix</small>
+    </div>
+    <div class="product" data-cat="smm" data-name="Visualizações Reais • TikTok" data-price="0.01" data-img="SMM6.png">
+      <img src="SMM6.png" alt=""><h4>Visualizações Reais • TikTok</h4><p class="price">R$ 0,01+</p><small>À vista no Pix</small>
+    </div>
+    <div class="product" data-cat="smm" data-name="Seguidores Reais • TikTok" data-price="0.03" data-img="SMM7.png">
+      <img src="SMM7.png" alt=""><h4>Seguidores Reais • TikTok</h4><p class="price">R$ 0,03+</p><small>À vista no Pix</small>
+    </div>
+  </div>
+
+  <!-- STREAMING -->
+  <h2 class="section-title" id="secStreaming">STREAMING</h2>
+  <div class="products product-list">
+    <div class="product" data-cat="streaming" data-name="Netflix Premium • 90 Dias" data-price="0.99" data-img="NETFLIX.jpg">
+      <img src="NETFLIX.jpg" alt=""><span class="off">90 DIAS</span>
+      <h4>Netflix Premium • 90 Dias</h4><p class="price">R$ 0,99+</p><small>À vista no Pix</small>
+    </div>
+
+    <div class="product out" data-cat="streaming" data-name="Spotify Premium • 30 Dias" data-price="11.90" data-img="SPOTIFY.jpg">
+      <img src="SPOTIFY.jpg" alt="">
+      <div class="badge">ESTOQUE ESGOTADO</div>
+      <span class="off">30 DIAS</span>
+      <h4>Spotify Premium • 30 Dias</h4><p class="price">R$ 11,90+</p><small>À vista no Pix</small>
+    </div>
+
+    <div class="product" data-cat="streaming" data-name="Crunchyroll Mega Fan • 90 Dias" data-price="3.90" data-img="CRUNCHYROLL.jpg">
+      <img src="CRUNCHYROLL.jpg" alt=""><span class="off">90 DIAS</span>
+      <h4>Crunchyroll Mega Fan • 90 Dias</h4><p class="price">R$ 3,90+</p><small>À vista no Pix</small>
+    </div>
+
+    <div class="product" data-cat="streaming" data-name="HBOMAX • 90 Dias" data-price="4.90" data-img="HBOMAX.jpg">
+      <img src="HBOMAX.jpg" alt=""><span class="off">90 DIAS</span>
+      <h4>HBOMAX • 90 Dias</h4><p class="price">R$ 4,90+</p><small>À vista no Pix</small>
+    </div>
+
+    <div class="product" data-cat="streaming" data-name="Prime Video • 90 Dias" data-price="4.90" data-img="PRIME.jpg">
+      <img src="PRIME.jpg" alt=""><span class="off">90 DIAS</span>
+      <h4>Prime Video • 90 Dias</h4><p class="price">R$ 4,90+</p><small>À vista no Pix</small>
+    </div>
+
+    <div class="product" data-cat="streaming" data-name="Premiere • 30 Dias" data-price="4.21" data-img="PREMIERE.jpg">
+      <img src="PREMIERE.jpg" alt=""><span class="off">30 DIAS</span>
+      <h4>Premiere • 30 Dias</h4><p class="price">R$ 4,21+</p><small>À vista no Pix</small>
+    </div>
+
+    <div class="product" data-cat="streaming" data-name="Globoplay + Premiere • 90 Dias" data-price="11.90" data-img="GLOBOPLAY.jpg">
+      <img src="GLOBOPLAY.jpg" alt=""><span class="off">90 DIAS</span>
+      <h4>Globoplay + Premiere • 90 Dias</h4><p class="price">R$ 11,90+</p><small>À vista no Pix</small>
+    </div>
+
+    <div class="product" data-cat="streaming" data-name="Sky+ • 30 Dias" data-price="9.90" data-img="SKY.jpg">
+      <img src="SKY.jpg" alt=""><span class="off">30 DIAS</span>
+      <h4>Sky+ • 30 Dias</h4><p class="price">R$ 9,90+</p><small>À vista no Pix</small>
+    </div>
+  </div>
+
+  <!-- JOGOS -->
+  <h2 class="section-title" id="secJogos">JOGOS</h2>
+  <div class="products product-list" id="loja">
+    <div class="product" data-cat="jogos" data-name="Black Myth Wukong • Steam" data-price="17.90" data-img="GAME1.jpg"><img src="GAME1.jpg" alt=""><span class="off">95% OFF</span><h4>Black Myth Wukong • Steam</h4><p class="old">R$ 399,90</p><p class="price">R$ 17,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="GTA V + Conta Rockstar • Steam" data-price="17.90" data-img="GAME2.jpg"><img src="GAME2.jpg" alt=""><span class="off">95% OFF</span><h4>GTA V + Conta Rockstar • Steam</h4><p class="old">R$ 399,90</p><p class="price">R$ 17,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Forza Horizon 5 • Steam" data-price="14.90" data-img="GAME3.jpg"><img src="GAME3.jpg" alt=""><span class="off">95% OFF</span><h4>Forza Horizon 5 • Steam</h4><p class="old">R$ 299,90</p><p class="price">R$ 14,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Forza Horizon 4 • Steam" data-price="13.90" data-img="GAME4.jpg"><img src="GAME4.jpg" alt=""><span class="off">95% OFF</span><h4>Forza Horizon 4 • Steam</h4><p class="old">R$ 259,90</p><p class="price">R$ 13,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Baldur's Gate 3 Deluxe • Steam" data-price="15.90" data-img="GAME5.jpg"><img src="GAME5.jpg" alt=""><span class="off">95% OFF</span><h4>Baldur's Gate 3 Deluxe • Steam</h4><p class="old">R$ 299,90</p><p class="price">R$ 15,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Elden Ring + Shadow of the Erdtree • Steam" data-price="17.90" data-img="GAME6.jpg"><img src="GAME6.jpg" alt=""><span class="off">95% OFF</span><h4>Elden Ring + Shadow of the Erdtree • Steam</h4><p class="old">R$ 399,90</p><p class="price">R$ 17,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Elden Ring • Steam" data-price="15.97" data-img="GAME7.jpg"><img src="GAME7.jpg" alt=""><span class="off">95% OFF</span><h4>Elden Ring • Steam</h4><p class="old">R$ 299,90</p><p class="price">R$ 15,97</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="The Last of Us Part II Remastered • Steam" data-price="16.90" data-img="GAME8.jpg"><img src="GAME8.jpg" alt=""><span class="off">95% OFF</span><h4>The Last of Us Part II Remastered • Steam</h4><p class="old">R$ 349,90</p><p class="price">R$ 16,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="The First Berserker: Khazan • Steam" data-price="16.90" data-img="GAME9.jpg"><img src="GAME9.jpg" alt=""><span class="off">95% OFF</span><h4>The First Berserker: Khazan • Steam</h4><p class="old">R$ 299,90</p><p class="price">R$ 16,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Lords of the Fallen • Steam" data-price="15.90" data-img="GAME10.jpg"><img src="GAME10.jpg" alt=""><span class="off">95% OFF</span><h4>Lords of the Fallen • Steam</h4><p class="old">R$ 299,90</p><p class="price">R$ 15,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Resident Evil 4 Remake • Steam" data-price="15.90" data-img="GAME11.jpg"><img src="GAME11.jpg" alt=""><span class="off">95% OFF</span><h4>Resident Evil 4 Remake • Steam</h4><p class="old">R$ 299,90</p><p class="price">R$ 15,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Minecraft Legends • Steam" data-price="6.90" data-img="GAME12.jpg"><img src="GAME12.jpg" alt=""><span class="off">95% OFF</span><h4>Minecraft Legends • Steam</h4><p class="old">R$ 129,90</p><p class="price">R$ 6,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="Horizon Zero Dawn • Steam" data-price="15.90" data-img="GAME13.jpg"><img src="GAME13.jpg" alt=""><span class="off">95% OFF</span><h4>Horizon Zero Dawn • Steam</h4><p class="old">R$ 249,90</p><p class="price">R$ 15,90</p><small>À vista no Pix</small></div>
+    <div class="product" data-cat="jogos" data-name="God of War Ragnarök • Steam" data-price="15.90" data-img="GAME14.jpg"><img src="GAME14.jpg" alt=""><span class="off">95% OFF</span><h4>God of War Ragnarök • Steam</h4><p class="old">R$ 349,90</p><p class="price">R$ 15,90</p><small>À vista no Pix</small></div>
+  </div>
+
+  <!-- APPS -->
+  <h2 class="section-title" id="secApps">APLICATIVOS</h2>
+  <div class="products product-list">
+    <div class="product" data-cat="apps" data-name="Aplicativo Exemplo • 30 Dias" data-price="9.90" data-img="APP1.png">
+      <img src="APP1.png" alt=""><span class="off">30 DIAS</span>
+      <h4>Aplicativo Exemplo • 30 Dias</h4><p class="price">R$ 9,90</p><small>À vista no Pix</small>
+    </div>
+  </div>
+
+  <!-- STEAM KEYS -->
+  <h2 class="section-title" id="secSteam">STEAM KEYS</h2>
+  <div class="products product-list">
+    <div class="product" data-cat="steam" data-name="Steam Key Exemplo • Jogo X" data-price="12.90" data-img="STEAM1.png">
+      <img src="STEAM1.png" alt=""><span class="off">KEY</span>
+      <h4>Steam Key Exemplo • Jogo X</h4><p class="price">R$ 12,90</p><small>À vista no Pix</small>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <section class="avaliacoes">
+    <h2><span>O QUE NOSSOS CLIENTES DIZEM</span></h2>
+    <div class="avaliacoes-track">
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=1" alt=""><div class="avaliacao-nome">Tiago M.</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Atendimento muito rápido, entrega imediata. Pode comprar e confiar!</div>
+      </div>
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=2" alt=""><div class="avaliacao-nome">Gustavo</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Preço muito bom, entrega na hora. Adorei, vou comprar mais 😍</div>
+      </div>
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=3" alt=""><div class="avaliacao-nome">Willian Santos</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Loja muito boa, preço ótimo e atendimento excelente. 10/10!</div>
+      </div>
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=4" alt=""><div class="avaliacao-nome">Matheus N.</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Ótimo preço e entrega rápida. Recomendo demais!</div>
+      </div>
+      <!-- duplicate -->
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=1" alt=""><div class="avaliacao-nome">Tiago M.</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Atendimento muito rápido, entrega imediata. Pode comprar e confiar!</div>
+      </div>
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=2" alt=""><div class="avaliacao-nome">Gustavo</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Preço muito bom, entrega na hora. Adorei, vou comprar mais 😍</div>
+      </div>
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=3" alt=""><div class="avaliacao-nome">Willian Santos</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Loja muito boa, preço ótimo e atendimento excelente. 10/10!</div>
+      </div>
+      <div class="avaliacao-card">
+        <div class="avaliacao-topo"><img src="https://i.pravatar.cc/40?img=4" alt=""><div class="avaliacao-nome">Matheus N.</div></div>
+        <div class="estrelas">★★★★★</div>
+        <div class="avaliacao-texto">Ótimo preço e entrega rápida. Recomendo demais!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <section class="support">
+    <div class="support-left">
+      <h2>Suporte</h2>
+      <p>Se precisar de ajuda em qualquer momento, pode contar com a gente. Nosso suporte está sempre pronto para esclarecer dúvidas e garantir que tudo funcione da melhor forma para você.</p>
+      <a href="https://wa.me/5546999165248" target="_blank" class="support-btn">Falar com Suporte</a>
+    </div>
+    <div class="support-right"><img src="SUPORTE.png" alt="Personagem de Suporte"></div>
+  </section>
+
+  <!-- CENTRAL -->
+  <section class="atendimento" id="central">
+    <div class="atendimento-wrap">
+      <h2>Central de Atendimento</h2>
+      <p class="sub">Canais oficiais e horários de suporte. Selecione a opção ideal para você.</p>
+
+      <div class="at-grid">
+        <div class="at-card">
+          <h3><span class="dot"></span> Fora do Horário</h3>
+          <p>Segunda a sexta: <b>12:00 às 20:00</b></p>
+          <a class="at-link" href="#central"><span>Ver Horário</span><span class="arrow">›</span></a>
+        </div>
+
+        <div class="at-card">
+          <h3><span class="dot"></span> Comunidade WhatsApp</h3>
+          <p>Entre na nossa comunidade e fique por dentro das novidades</p>
+          <a class="at-link" href="https://wa.me/5546999165248" target="_blank"><span>GRUPO WHAT</span><span class="arrow">›</span></a>
+        </div>
+
+        <div class="at-card">
+          <h3><span class="dot"></span> GRUPO WHAT</h3>
+          <p>Entre na nossa comunidade e tire suas dúvidas</p>
+          <a class="at-link" href="https://wa.me/5546999165248" target="_blank"><span>Entrar no Grupo</span><span class="arrow">›</span></a>
+        </div>
+
+        <div class="at-card">
+          <h3><span class="dot"></span> Canais de suporte direto</h3>
+          <p><b>SUPORTE GERAL</b><br>Estamos sem whatsapp no momento, suporte via discord ativo!</p>
+          <a class="at-link" href="#" target="_blank"><span>Discord (colocar link)</span><span class="arrow">›</span></a>
+        </div>
+
+        <div class="at-card">
+          <h3><span class="dot"></span> Suporte prioritário</h3>
+          <p>Estamos sem whatsapp, suporte via discord ativo</p>
+          <a class="at-link" href="#" target="_blank"><span>Prioritário (colocar link)</span><span class="arrow">›</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL REVIEWS -->
+  <section class="final-avaliacoes">
+    <h2>O que nossos clientes dizem</h2>
+    <div class="final-slider">
+      <div class="final-track">
+        <div class="final-card">
+          <div class="final-top"><img src="https://i.pravatar.cc/44?img=11" alt=""><div><strong>matheus nunes GHOST</strong><div class="final-stars">★★★★★</div></div></div>
+          <p>ótimo preço</p>
+        </div>
+        <div class="final-card">
+          <div class="final-top"><img src="https://i.pravatar.cc/44?img=12" alt=""><div><strong>Guilherme Emanuel</strong><div class="final-stars">★★★★★</div></div></div>
+          <p>Ótima loja, atendimento eficaz!</p>
+        </div>
+        <div class="final-card">
+          <div class="final-top"><img src="https://i.pravatar.cc/44?img=13" alt=""><div><strong>Breno Engels</strong><div class="final-stars">★★★★★</div></div></div>
+          <p>Entrega extremamente rápida, e grande variedade de jogos!</p>
+        </div>
+        <div class="final-card">
+          <div class="final-top"><img src="https://i.pravatar.cc/44?img=14" alt=""><div><strong>Ana Clara</strong><div class="final-stars">★★★★★</div></div></div>
+          <p>Comprei e recebi na hora. Recomendo demais!</p>
+        </div>
+      </div>
+    </div>
+
+    <a class="final-btn" href="#central">Ver mais avaliações</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-final">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">G1 Tech Store</div>
+        <p>Conheça a nossa loja! Aqui você encontra jogos, steam keys e serviços digitais. Compra rápida, segura e 100% digital.</p>
+        <p class="footer-dev">Desenvolvido com 💜 para <b>G1 Tech Store</b></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informações</h4>
+        <a href="#central">Central de Atendimento</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Reembolso</a>
+
+        <h4 style="margin-top:18px;">Selos de Confiança</h4>
+        <div class="selos">
+          <span>✅ SiteConfiável</span>
+          <span>⭐ Trustpilot</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nossas Redes</h4>
+        <div class="redes">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="Discord">💬</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-mini">
+      <div class="mini-item"><div class="mini-ico">🛡️</div><div><b>100% Seguro</b><small>Compras protegidas</small></div></div>
+      <div class="mini-item"><div class="mini-ico">⚡</div><div><b>Entrega instantânea</b><small>Receba na hora</small></div></div>
+      <div class="mini-item"><div class="mini-ico">📞</div><div><b>Suporte 24/7</b><small>Sempre disponível</small></div></div>
+    </div>
+
+    <div class="footer-copy">© 2026 - G1 Tech Store | Todos os direitos reservados</div>
+  </footer>
+
+  <!-- MODAL CADASTRO -->
+  <div class="overlay" id="cadOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Cadastro obrigatório</div>
+        <button class="xbtn" id="cadClose">✕</button>
+      </div>
+
+      <div class="hint">
+        Para comprar, você precisa se cadastrar com <b>Nome</b> e <b>CEP</b> e confirmar que seguiu o Instagram.
+        <br><br>
+        Instagram da loja: <b>@SEU_INSTA_AQUI</b> (você troca depois)
+      </div>
+
+      <form class="form" id="cadForm">
+        <div class="field">
+          <label>Nome</label>
+          <input type="text" id="cadNome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="field">
+          <label>CEP</label>
+          <input type="text" id="cadCep" placeholder="00000-000" required>
+        </div>
+
+        <div class="check">
+          <input type="checkbox" id="cadFollow" required>
+          <div>
+            Confirmo que segui o Instagram <b>@SEU_INSTA_AQUI</b>.
+            <br><span style="color:#9ca3af">(obrigatório para prosseguir)</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn-pri">Finalizar cadastro</button>
+          <button type="button" class="btn-sec" id="cadCancelar">Agora não</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- DRAWER CARRINHO -->
+  <div class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <div class="drawer-title">🛒 Seu carrinho</div>
+      <button class="xbtn" id="cartClose">✕</button>
+    </div>
+
+    <div class="drawer-body" id="cartItems"></div>
+
+    <div class="drawer-footer">
+      <div class="total-line"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+      <button class="btn-pri" id="btnCheckout">Finalizar compra (Pix)</button>
+      <button class="btn-sec" id="btnLimparCart">Limpar carrinho</button>
+    </div>
+  </div>
+
+  <!-- MODAL CHECKOUT (PIX FIXO + PEDIDO) -->
+  <div class="overlay" id="payOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title">Checkout • Pagamento via Pix</div>
+        <button class="xbtn" id="payClose">✕</button>
+      </div>
+
+      <div class="hint">
+        ✅ Pague no Pix com o <b>valor exato</b> e depois clique em <b>Enviar comprovante</b> no WhatsApp.<br><br>
+        <b>Pedido:</b> <span id="payOrderId">—</span><br>
+        <b>Total:</b> <span id="payTotalText">R$ 0,00</span>
+      </div>
+
+      <div class="pix-box">
+        <div class="pix-row">
+          <span><b>Método:</b> Pix (QR fixo)</span>
+          <span><b>Status:</b> Aguardando pagamento</span>
+        </div>
+
+        <!-- QR FIXO (coloque o arquivo do QR aqui) -->
+        <div class="pix-qr">
+          <<img id="pixQrImg" src="pix_qr.png" alt="QR Pix">
+
+        </div>
+
+        <div class="hint"><b>Pix Copia e Cola</b></div>
+
+        <textarea class="pix-textarea" id="pixCopiaCola" readonly>00020101021126810014BR.GOV.BCB.PIX2559pix-qr.mercadopago.com/instore/ol/v2/3Z92NS4buIGxIketVGZToR5204000053039865802BR5915Hentonny Santos6009SAO PAULO62080504mpis6304DCBF</textarea>
+
+        <div class="pix-actions">
+          <button class="btn-sec" id="btnCopyPix" type="button">📋 Copiar Pix</button>
+          <a class="btn-pri" id="btnEnviarComprovante" href="#" target="_blank">📲 Enviar comprovante</a>
+        </div>
+
+        <div class="hint">
+          Dica: após pagar, envie o comprovante com o ID do pedido. Assim o suporte encontra seu pagamento rapidinho.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ===== UTIL ===== */
+    const brl = (v) => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+
+    const ADMIN_PHONE = "5546999165248"; // seu WhatsApp com DDI+DDD+NUM
+
+    // Pix (copia e cola) fixo
+    const PIX_COPIA_COLA = `00020101021126810014BR.GOV.BCB.PIX2559pix-qr.mercadopago.com/instore/ol/v2/3Z92NS4buIGxIketVGZToR5204000053039865802BR5915Hentonny Santos6009SAO PAULO62080504mpis6304DCBF`;
+
+    function genOrderId(){
+      return 'G1-' + Math.random().toString(16).slice(2,8).toUpperCase();
+    }
+
+    function getUser(){
+      try { return JSON.parse(localStorage.getItem('g1_user') || 'null'); } catch { return null; }
+    }
+    function setUser(u){
+      localStorage.setItem('g1_user', JSON.stringify(u));
+      renderUserPill();
+    }
+    function getCart(){
+      try { return JSON.parse(localStorage.getItem('g1_cart') || '[]'); } catch { return []; }
+    }
+    function setCart(c){
+      localStorage.setItem('g1_cart', JSON.stringify(c));
+      renderCartCount();
+    }
+    function cartTotal(cart){
+      return cart.reduce((sum,it)=> sum + (it.price * it.qty), 0);
+    }
+    function ensureCadastro(){
+      const user = getUser();
+      if(!user){ openCadastro(); return false; }
+      return true;
+    }
+
+    /* ===== Cadastro modal ===== */
+    const cadOverlay = document.getElementById('cadOverlay');
+    const cadForm = document.getElementById('cadForm');
+    const cadClose = document.getElementById('cadClose');
+    const cadCancelar = document.getElementById('cadCancelar');
+
+    function openCadastro(){ cadOverlay.classList.add('open'); }
+    function closeCadastro(){ cadOverlay.classList.remove('open'); }
+
+    cadClose.addEventListener('click', closeCadastro);
+    cadCancelar.addEventListener('click', closeCadastro);
+    cadOverlay.addEventListener('click', (e)=>{ if(e.target === cadOverlay) closeCadastro(); });
+
+    cadForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const nome = document.getElementById('cadNome').value.trim();
+      const cep = document.getElementById('cadCep').value.trim();
+      const follow = document.getElementById('cadFollow').checked;
+
+      if(!nome || !cep || !follow){
+        alert('Preencha Nome, CEP e confirme que seguiu o Instagram.');
+        return;
+      }
+      setUser({ nome, cep, createdAt: Date.now() });
+      closeCadastro();
+      alert('Cadastro concluído! Agora você já pode comprar.');
+    });
+
+    /* ===== User Pill ===== */
+    const userPill = document.getElementById('userPill');
+    const btnCadastro = document.getElementById('btnCadastro');
+
+    function renderUserPill(){
+      const u = getUser();
+      if(!u){
+        userPill.textContent = '👤 Visitante';
+        btnCadastro.textContent = 'Cadastrar';
+        return;
+      }
+      userPill.textContent = '✅ ' + u.nome;
+      btnCadastro.textContent = 'Editar cadastro';
+    }
+
+    btnCadastro.addEventListener('click', ()=>{
+      const u = getUser();
+      document.getElementById('cadNome').value = u?.nome || '';
+      document.getElementById('cadCep').value = u?.cep || '';
+      document.getElementById('cadFollow').checked = false;
+      openCadastro();
+    });
+
+    /* ===== Cart drawer ===== */
+    const cartDrawer = document.getElementById('cartDrawer');
+    const btnCarrinho = document.getElementById('btnCarrinho');
+    const cartClose = document.getElementById('cartClose');
+    const cartItems = document.getElementById('cartItems');
+    const cartCount = document.getElementById('cartCount');
+    const cartTotalEl = document.getElementById('cartTotal');
+    const btnLimparCart = document.getElementById('btnLimparCart');
+    const btnCheckout = document.getElementById('btnCheckout');
+
+    function openCart(){ cartDrawer.classList.add('open'); renderCart(); }
+    function closeCart(){ cartDrawer.classList.remove('open'); }
+
+    btnCarrinho.addEventListener('click', ()=>{
+      if(!ensureCadastro()) return;
+      openCart();
+    });
+    cartClose.addEventListener('click', closeCart);
+
+    btnLimparCart.addEventListener('click', ()=>{
+      setCart([]);
+      renderCart();
+    });
+
+    function renderCartCount(){
+      const c = getCart();
+      const totalQty = c.reduce((s,i)=>s+i.qty,0);
+      cartCount.textContent = totalQty;
+    }
+
+    function renderCart(){
+      const cart = getCart();
+      cartItems.innerHTML = '';
+
+      if(cart.length === 0){
+        cartItems.innerHTML = `<div class="hint">Seu carrinho está vazio. Adicione produtos para continuar.</div>`;
+        cartTotalEl.textContent = brl(0);
+        return;
+      }
+
+      cart.forEach((it, idx)=>{
+        const el = document.createElement('div');
+        el.className = 'cart-item';
+        el.innerHTML = `
+          <img src="${it.img}" alt="">
+          <div>
+            <h5>${it.name}</h5>
+            <div class="meta">
+              <span>${brl(it.price)}</span>
+              <button class="remove" data-idx="${idx}">Remover</button>
+            </div>
+            <div class="qty">
+              <button class="qbtn" data-act="dec" data-idx="${idx}">−</button>
+              <div class="qval">${it.qty}</div>
+              <button class="qbtn" data-act="inc" data-idx="${idx}">+</button>
+            </div>
+          </div>
+        `;
+        cartItems.appendChild(el);
+      });
+
+      cartTotalEl.textContent = brl(cartTotal(cart));
+    }
+
+    cartItems.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button');
+      if(!btn) return;
+
+      const cart = getCart();
+      const idx = Number(btn.dataset.idx);
+
+      if(btn.classList.contains('remove')){
+        cart.splice(idx,1);
+        setCart(cart);
+        renderCart();
+        return;
+      }
+
+      const act = btn.dataset.act;
+      if(act === 'inc') cart[idx].qty += 1;
+      if(act === 'dec'){
+        cart[idx].qty -= 1;
+        if(cart[idx].qty <= 0) cart.splice(idx,1);
+      }
+
+      setCart(cart);
+      renderCart();
+    });
+
+    /* ===== Checkout Pix fixo + pedido ===== */
+    const payOverlay = document.getElementById('payOverlay');
+    const payClose = document.getElementById('payClose');
+    const payTotalText = document.getElementById('payTotalText');
+    const payOrderId = document.getElementById('payOrderId');
+    const pixCopiaCola = document.getElementById('pixCopiaCola');
+    const btnCopyPix = document.getElementById('btnCopyPix');
+    const btnEnviarComprovante = document.getElementById('btnEnviarComprovante');
+
+    function openPay(){
+      const cart = getCart();
+      if(cart.length === 0){ alert('Seu carrinho está vazio.'); return; }
+      const u = getUser();
+      if(!u){ openCadastro(); return; }
+
+      // cria pedido
+      const orderId = genOrderId();
+      const total = cartTotal(cart);
+
+      const order = {
+        id: orderId,
+        createdAt: Date.now(),
+        customer: { nome: u.nome, cep: u.cep },
+        items: cart,
+        total: total,
+        payment: 'PIX_FIXO'
+      };
+      localStorage.setItem('g1_last_order', JSON.stringify(order));
+
+      // preenche modal
+      payOrderId.textContent = orderId;
+      payTotalText.textContent = brl(total);
+      pixCopiaCola.value = PIX_COPIA_COLA;
+
+      // montar msg WhatsApp (com ID, total, itens e cadastro)
+      const itensTxt = cart.map(it =>
+        `• ${it.name} | Qtd: ${it.qty} | ${brl(it.price)}`
+      ).join('\n');
+
+      const msg =
+`🧾 *COMPROVANTE PIX - G1 Tech Store*
+🆔 Pedido: *${orderId}*
+💰 Total: *${brl(total)}*
+
+👤 *DADOS (CADASTRO)*
+Nome: ${u.nome}
+CEP: ${u.cep}
+
+🛒 *ITENS*
+${itensTxt}
+
+✅ Estou enviando o comprovante do Pix.`;
+
+      btnEnviarComprovante.href = `https://wa.me/${ADMIN_PHONE}?text=${encodeURIComponent(msg)}`;
+
+      payOverlay.classList.add('open');
+    }
+    function closePay(){ payOverlay.classList.remove('open'); }
+
+    btnCheckout.addEventListener('click', ()=>{
+      if(!ensureCadastro()) return;
+      openPay();
+    });
+
+    payClose.addEventListener('click', closePay);
+    payOverlay.addEventListener('click', (e)=>{ if(e.target === payOverlay) closePay(); });
+
+    btnCopyPix.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText((pixCopiaCola.value || '').trim());
+        alert('Pix copiado!');
+      }catch{
+        pixCopiaCola.focus();
+        pixCopiaCola.select();
+        document.execCommand('copy');
+        alert('Pix copiado!');
+      }
+    });
+
+    /* ===== Produtos: adicionar botões ===== */
+    function addToCartFromProduct(el){
+      if(el.classList.contains('out')){ alert('Produto esgotado no momento.'); return; }
+      if(!ensureCadastro()) return;
+
+      const name = el.dataset.name || el.querySelector('h4')?.textContent?.trim() || 'Produto';
+      const price = Number(el.dataset.price || '0');
+      const img = el.dataset.img || el.querySelector('img')?.getAttribute('src') || '';
+      const cat = (el.dataset.cat || '').toLowerCase();
+
+      const cart = getCart();
+      const found = cart.find(i => i.name === name);
+      if(found) found.qty += 1;
+      else cart.push({ name, price, img, qty: 1, cat });
+
+      setCart(cart);
+      renderCartCount();
+      alert('Adicionado ao carrinho: ' + name);
+    }
+
+    function buyNowFromProduct(el){
+      if(el.classList.contains('out')){ alert('Produto esgotado no momento.'); return; }
+      if(!ensureCadastro()) return;
+
+      const name = el.dataset.name || el.querySelector('h4')?.textContent?.trim() || 'Produto';
+      const price = Number(el.dataset.price || '0');
+      const img = el.dataset.img || el.querySelector('img')?.getAttribute('src') || '';
+      const cat = (el.dataset.cat || '').toLowerCase();
+
+      setCart([{ name, price, img, qty: 1, cat }]);
+      renderCartCount();
+      openCart();
+    }
+
+    function injectProductButtons(){
+      document.querySelectorAll('.product-list .product').forEach((card)=>{
+        if(card.querySelector('.product-actions')) return;
+
+        const actions = document.createElement('div');
+        actions.className = 'product-actions';
+        actions.innerHTML = `
+          <button class="mini-btn" data-act="add">Adicionar</button>
+          <button class="mini-btn primary" data-act="buy">Comprar</button>
+        `;
+        if(card.classList.contains('out')){
+          actions.innerHTML = `<button class="mini-btn" disabled style="opacity:.6;cursor:not-allowed">Indisponível</button>`;
+        }
+        card.appendChild(actions);
+      });
+    }
+
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest('.mini-btn');
+      if(!btn) return;
+      const card = btn.closest('.product');
+      if(!card) return;
+
+      const act = btn.dataset.act;
+      if(act === 'add') addToCartFromProduct(card);
+      if(act === 'buy') buyNowFromProduct(card);
+    });
+
+    /* ===== Central / categorias scroll ===== */
+    document.getElementById('btnAtendimento').addEventListener('click', ()=>{
+      document.querySelector('#central').scrollIntoView({behavior:'smooth'});
+    });
+    document.querySelectorAll('.categoria-card[data-scroll]').forEach((c)=>{
+      c.addEventListener('click', ()=>{
+        const sel = c.dataset.scroll;
+        const target = document.querySelector(sel);
+        if(target) target.scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    /* ===== Busca ===== */
+    const searchInput = document.getElementById('searchInput');
+    if(searchInput){
+      searchInput.addEventListener('input', ()=>{
+        const q = searchInput.value.trim().toLowerCase();
+        document.querySelectorAll('.product-list .product').forEach(card=>{
+          const name = (card.dataset.name || '').toLowerCase();
+          card.style.display = name.includes(q) ? '' : 'none';
+        });
+      });
+    }
+
+    /* ===== Init ===== */
+    document.querySelectorAll(".product.out").forEach(el=>{
+      el.addEventListener("click",(e)=>{ e.preventDefault(); e.stopPropagation(); });
+    });
+
+    injectProductButtons();
+    renderUserPill();
+    renderCartCount();
+  </script>
+</body>
+</html>
